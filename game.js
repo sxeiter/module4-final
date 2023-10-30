@@ -31,6 +31,10 @@
           }
         }
       }
+      if (playerNum >= score.player) {
+        alert(`неверное значение, введите число от 1 до ${score.player}!`);
+        return startGame();
+      }
       
       const randomNum = getRandomIntInclusive(1, 2);
       console.log(`Случайное число: ${randomNum}`);
@@ -41,9 +45,9 @@
         score.computer += parsedPlayerNum;
         score.player -= parsedPlayerNum;
         
-        if (score.player === 0) {
+        if (score.player <= 1) {
           alert('Вы проиграли');
-          
+                    
           if (confirm('Хотите начать новую игру?')) {
             score.player = 5;
             score.computer = 5;
